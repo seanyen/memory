@@ -48,6 +48,7 @@ set(header
         ${header_path}/threading.hpp
         ${header_path}/tracking.hpp
         ${header_path}/virtual_memory.hpp
+        ${header_path}/visibility_control.hpp
         ${CMAKE_CURRENT_BINARY_DIR}/container_node_sizes_impl.hpp)
 
 set(src
@@ -98,7 +99,9 @@ target_compile_definitions(foonathan_memory PUBLIC
                             FOONATHAN_MEMORY=1
                             FOONATHAN_MEMORY_VERSION_MAJOR=${FOONATHAN_MEMORY_VERSION_MAJOR}
                             FOONATHAN_MEMORY_VERSION_MINOR=${FOONATHAN_MEMORY_VERSION_MINOR}
-                            FOONATHAN_MEMORY_VERSION_PATCH=${FOONATHAN_MEMORY_VERSION_PATCH})
+                            FOONATHAN_MEMORY_VERSION_PATCH=${FOONATHAN_MEMORY_VERSION_PATCH}
+                            PRIVATE
+                            FOONATHAN_MEMORY_BUILDING_LIBRARY=1)
 
 set_target_properties(foonathan_memory PROPERTIES
                                        OUTPUT_NAME "foonathan_memory-${FOONATHAN_MEMORY_VERSION}")

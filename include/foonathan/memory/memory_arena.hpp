@@ -19,6 +19,7 @@
 #include "config.hpp"
 #include "default_allocator.hpp"
 #include "error.hpp"
+#include "visibility_control.hpp"
 
 namespace foonathan
 {
@@ -128,6 +129,7 @@ namespace foonathan
                 using inserted_mb = memory_block;
 
                 // how much an inserted block is smaller
+                FOONATHAN_MEMORY_PUBLIC
                 static const std::size_t implementation_offset;
 
                 // pushes a memory block
@@ -167,8 +169,11 @@ namespace foonathan
                     {
                     }
 
+                    FOONATHAN_MEMORY_PUBLIC
                     static const std::size_t div_alignment;
+                    FOONATHAN_MEMORY_PUBLIC
                     static const std::size_t mod_offset;
+                    FOONATHAN_MEMORY_PUBLIC
                     static const std::size_t offset;
                 };
 
